@@ -8,7 +8,9 @@
     "start": "ts-node index.ts"
   },
   "dependencies": {
+    "@types/inversify": "^2.0.33",
     "@types/node": "^10.12.10",
+    "inversify": "^5.0.1",
     "ts-node": "^7.0.1",
     "ts-node-dev": "^1.0.0-pre.30",
     "typescript": "^3.1.6"
