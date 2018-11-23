@@ -3,8 +3,8 @@ import { createDiContainer } from './root.container';
 import { ReportingService } from './reporting/reporting.service';
 
 async function main() {
-  const diContainer = createDiContainer();
-  const reportingService = diContainer.resolve(ReportingService);
+  const rootContainer = createDiContainer();
+  const reportingService = rootContainer.resolve(ReportingService);
   const report = reportingService.createAccountingReport();
   console.log(report);
 }

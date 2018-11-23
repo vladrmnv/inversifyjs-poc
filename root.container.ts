@@ -2,13 +2,12 @@ import { Container } from 'inversify';
 import { makeLoggerMiddleware } from 'inversify-logger-middleware';
 import { reportingContainer } from './reporting/reporting.container';
 
-
 export function createDiContainer() {
-  const diContainer = new Container();
+  const container = new Container();
   let logger = makeLoggerMiddleware();
-  diContainer.applyMiddleware(logger);
+  container.applyMiddleware(logger);
 
-  diContainer.parent = reportingContainer;
+  const rootContainer = Container.merge(container, reportingContainer);
 
-  return diContainer;
+  return rootContainer;
 }

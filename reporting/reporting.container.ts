@@ -1,4 +1,4 @@
-import { Container } from 'inversify';
+import { Container, ContainerModule } from 'inversify';
 import { ReportingService } from './reporting.service';
 import { accountingContainer } from '../accounting/accounting.container';
 
@@ -6,9 +6,10 @@ export const TYPES = {
   ReportingService: Symbol('ReportingService'),
 };
 
-export const reportingContainer = new Container();
-reportingContainer.bind(TYPES.ReportingService).to(ReportingService);
+const container = new Container();
+container.bind(TYPES.ReportingService).to(ReportingService);
 
-reportingContainer.parent = accountingContainer;
-
-
+export const reportingContainer = Container.merge(
+  container,
+  accountingContainer
+);
