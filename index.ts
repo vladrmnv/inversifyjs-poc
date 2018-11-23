@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { createDiContainer } from './di-container';
+import { createDiContainer } from './root.container';
 import { ReportingService } from './reporting/reporting.service';
 
 async function main() {
