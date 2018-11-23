@@ -1,10 +1,10 @@
-import { injectable, inject } from 'inversify';
-import { AccountsService, IAccountsService } from './accounts.service';
+import { injectable } from 'inversify';
+import { AccountsService } from '../accounting/accounts.service';
 
 @injectable()
 export class ReportingService {
-  accountsService: IAccountsService;
-  constructor(@inject(AccountsService) accountsService: IAccountsService) {
+  private accountsService: AccountsService;
+  constructor(accountsService: AccountsService) {
     this.accountsService = accountsService;
   }
   public createAccountingReport() {

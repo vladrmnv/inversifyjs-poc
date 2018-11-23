@@ -1,6 +1,12 @@
 import { Container } from 'inversify';
-import { AccountsService } from './accounts.service';
+import { AccountsService } from './accounting/accounts.service';
+import { ReportingService } from './reporting/reporting.service';
 
-export const diContainer = new Container();
+export function createDiContainer() {
+  const diContainer = new Container();
 
-diContainer.bind(AccountsService).to
+  diContainer.bind(AccountsService).toSelf();
+  diContainer.bind(ReportingService).toSelf();
+
+  return diContainer;
+}
