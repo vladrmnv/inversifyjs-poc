@@ -7,4 +7,7 @@
 * Supports `@optional` dependencies with default values
 * Multiple berndings selected by `@tagged`, `@named` or default
 * Hierarchical DI support
-* 
+
+## Notable utilities
+
+inversify-binding-decorators utility and shorthand decorators 

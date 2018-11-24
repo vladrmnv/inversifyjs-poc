@@ -1,15 +1,10 @@
-import { Container, ContainerModule } from 'inversify';
-import { ReportingService } from './reporting.service';
-import { accountingContainer } from '../accounting/accounting.container';
+import { ContainerModule } from 'inversify';
+import { ReportingService, IReportingService } from './reporting.service';
 
 export const TYPES = {
   ReportingService: Symbol('ReportingService'),
 };
 
-const container = new Container();
-container.bind(TYPES.ReportingService).to(ReportingService);
-
-export const reportingContainer = Container.merge(
-  container,
-  accountingContainer
-);
+export const ReportingModule = new ContainerModule(bind => {
+  bind<IReportingService>(TYPES.ReportingService).to(ReportingService);
+});

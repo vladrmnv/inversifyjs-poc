@@ -5,7 +5,7 @@ export interface IAccountsService {
 }
 
 @injectable()
-export class AccountsService {
+export class AccountsService implements IAccountsService {
   public getNewAccounts() {
     return ['account1', 'account2'];
   }

@@ -1,10 +1,10 @@
-import { Container } from 'inversify';
-import { AccountsService } from './accounts.service';
-
+import { ContainerModule } from 'inversify';
+import { AccountsService, IAccountsService } from './accounts.service';
 
 export const TYPES = {
   AccountsService: Symbol('AccountsService'),
 };
 
-export const accountingContainer = new Container();
-accountingContainer.bind(TYPES.AccountsService).to(AccountsService);
+export const AccountingModule = new ContainerModule(bind => {
+  bind<IAccountsService>(TYPES.AccountsService).to(AccountsService);
+});
