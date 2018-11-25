@@ -1,5 +1,4 @@
-import { Container, ContainerModule } from 'inversify';
-import { AccountingModule } from '../accounting/accounting.module';
+import { ContainerModule } from 'inversify';
 
 import { IModuleConstructor, IModule } from '../core/module';
 import { ReportingModule } from '../reporting/reporting.module';
