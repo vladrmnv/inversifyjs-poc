@@ -2,21 +2,20 @@ import { injectable, inject } from 'inversify';
 import { IAccountsService } from '../accounting/accounts.service';
 import { TYPES } from '../accounting/accounting.module';
 
-export interface IReportingService {
-  createAccountingReport(): string;
+export interface INotificationsService {
+  getUpdates(): string;
 }
 
 @injectable()
-export class ReportingService {
+export class NotificationsService implements INotificationsService {
   private accountsService: IAccountsService;
   constructor(
-    // try without @inject
     @inject(TYPES.AccountsService) accountsService: IAccountsService
   ) {
     this.accountsService = accountsService;
   }
-  public createAccountingReport() {
+  public getUpdates() {
     const accounts = this.accountsService.getNewAccounts();
-    return `New accounts: ${accounts}`;
+    return `Your updates: Accounts - ${accounts}`;
   }
 }
