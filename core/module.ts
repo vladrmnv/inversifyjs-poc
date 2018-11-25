@@ -1,5 +1,3 @@
-import { interfaces } from 'inversify';
-
 export interface IModule {
   imports: IModuleConstructor[];
   load(): any;
