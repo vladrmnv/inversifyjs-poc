@@ -1,16 +1,12 @@
 import { ContainerModule } from 'inversify';
 
-import { IModuleConstructor, IModule } from '../core/module';
+import { IModuleConstructor, IModule, NwModule } from '../core/module';
 import { ReportingModule } from '../reporting/reporting.module';
 import { NotificationsModule } from '../notifications/notifications.module';
 
+@NwModule({
+  imports: [ReportingModule, NotificationsModule],
+})
 export class AppModule implements IModule {
-  public readonly imports: IModuleConstructor[] = [
-    ReportingModule,
-    NotificationsModule,
-  ];
-
-  load() {
-    return new ContainerModule(bind => {});
-  }
+  load() {}
 }

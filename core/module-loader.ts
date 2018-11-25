@@ -25,7 +25,9 @@ export class ModuleLoader implements IModuleLoader {
       results.push(Module);
       const currentModule = new Module();
       if (!isEmpty(currentModule.imports)) {
-        const dependencies = this.unwrapModules(currentModule.imports);
+        const dependencies = this.unwrapModules(<IModuleConstructor[]>(
+          currentModule.imports
+        ));
         results.push(...dependencies);
       }
     });
