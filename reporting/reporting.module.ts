@@ -13,6 +13,6 @@ export const TYPES = {
     bind<IReportingService>(TYPES.ReportingService).to(ReportingService);
   },
 })
-export class ReportingModule implements IModule {
+export class ReportingModule {
   load() {}
 }

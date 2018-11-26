@@ -14,6 +14,6 @@ export const TYPES = {
     bind<IAccountsService>(TYPES.AccountsService).to(AccountsService);
   },
 })
-export class AccountingModule implements IModule {
+export class AccountingModule {
   load() {}
 }

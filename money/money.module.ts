@@ -11,6 +11,6 @@ export const TYPES = {
     bind<IMoneyService>(TYPES.MoneyService).to(MoneyService);
   },
 })
-export class MoneyModule implements IModule {
+export class MoneyModule {
   load() {}
 }

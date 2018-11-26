@@ -7,6 +7,6 @@ import { NotificationsModule } from '../notifications/notifications.module';
 @NwModule({
   imports: [ReportingModule, NotificationsModule],
 })
-export class AppModule implements IModule {
+export class AppModule {
   load() {}
 }

@@ -19,5 +19,5 @@ export const TYPES = {
   },
 })
 export class NotificationsModule {
-  load(){}
+  load() {}
 }
