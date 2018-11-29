@@ -8,6 +8,7 @@
     "start": "ts-node index.ts"
   },
   "dependencies": {
+    "@loopback/core": "^1.1.1",
     "@types/inversify": "^2.0.33",
     "@types/lodash": "^4.14.118",
     "@types/node": "^10.12.10",

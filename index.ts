@@ -1,13 +1,9 @@
 import 'reflect-metadata';
-import { loadDiContainer } from './app/root.container';
-import { ReportingService, IReportingService } from './reporting/reporting.service';
-import { TYPES } from './reporting/reporting.module';
+import { DiPocApplication } from './application';
 
 async function main() {
-  const rootContainer = loadDiContainer();
-  const reportingService = rootContainer.get<IReportingService>(TYPES.ReportingService);
-  const report = reportingService.createAccountingReport();
-  console.log(report);
+ const app = new DiPocApplication();
+ await app.start();
 }
 
 main()

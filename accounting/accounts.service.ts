@@ -1,15 +1,13 @@
-import { injectable, inject } from 'inversify';
-import { TYPES } from '../money/money.module';
-import { IMoneyService } from '../money/money.service';
+import { IMoneyService, MoneyService } from '../money/money.service';
+import { inject } from '@loopback/core';
 
 export interface IAccountsService {
   getNewAccounts(): string[];
 }
 
-@injectable()
 export class AccountsService implements IAccountsService {
   moneyService: IMoneyService;
-  constructor(@inject(TYPES.MoneyService) moneyService: IMoneyService) {
+  constructor(@inject(MoneyService.name) moneyService: IMoneyService) {
     this.moneyService = moneyService;
   }
   public getNewAccounts() {
