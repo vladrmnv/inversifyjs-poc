@@ -1,6 +1,6 @@
 import { injectable, inject } from 'inversify';
 import { IAccountsService } from '../accounting/accounts.service';
-import { TYPES } from '../accounting/accounting.module';
+import { TYPES } from '../accounting/accounting.component';
 
 export interface IReportingService {
   createAccountingReport(): string;

@@ -1,5 +1,5 @@
 import { Container, ContainerModule } from 'inversify';
-import { AccountingModule } from '../accounting/accounting.module';
+import { AccountingModule } from '../accounting/accounting.component';
 import {
   INotificationsService,
   NotificationsService,

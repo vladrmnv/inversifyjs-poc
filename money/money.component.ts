@@ -1,5 +1,5 @@
-import { IMoneyService, MoneyService } from './money.service';
-import { Component, ProviderMap, Binding } from '@loopback/core';
+import { MoneyService } from './money.service';
+import { Component, Binding } from '@loopback/core';
 
 export class MoneyComponent implements Component {
   bindings: Binding[];
