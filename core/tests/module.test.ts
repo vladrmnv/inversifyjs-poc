@@ -1,9 +1,13 @@
 import { expect } from 'chai';
 
 import { NwModule } from '../module';
+import { interfaces } from 'inversify';
 
 describe('NwModule', () => {
   class TestModule {}
+  class ImportedModule {
+    load() {}
+  }
   it('returns a class', () => {
     const result = NwModule({})(TestModule);
     console.log(result.name);
@@ -16,14 +20,20 @@ describe('NwModule', () => {
       expect(result.name).to.eq(TestModule.name);
     });
     it('gets imports assigned from options', () => {
-      class ImportedModule {
-        load() {}
-      }
       const DecoratedTestModule = NwModule({
         imports: [ImportedModule],
       })(TestModule);
       const testModule = new DecoratedTestModule();
       expect(testModule.imports).to.deep.eq([ImportedModule]);
+    });
+    it('gets providers assigned from options', () => {
+      const providerFn: interfaces.ContainerModuleCallBack = bind =>
+        bind('test').toConstantValue('testString');
+      const DecoratedTestModule = NwModule({
+        providers: providerFn,
+      })(TestModule);
+      const testModule = new DecoratedTestModule();
+      expect((<any>testModule).providers).to.eq(providerFn);
     });
   });
 });
