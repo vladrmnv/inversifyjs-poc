@@ -11,7 +11,6 @@ describe('NwModule', () => {
   }
   it('returns a class', () => {
     const result = NwModule({})(TestModule);
-    console.log(result.name);
     expect(result).to.be.a('function');
   });
   describe('decorated class module', () => {

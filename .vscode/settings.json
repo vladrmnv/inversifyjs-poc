@@ -1,5 +1,8 @@
 {
+    "mocha.options": {},
     "mocha.requires": [
-        "ts-node/register"
-    ]
+        "ts-node/register",
+        "reflect-metadata"
+    ],
+    "mocha.files.glob": "**/*.test.ts"
 }
