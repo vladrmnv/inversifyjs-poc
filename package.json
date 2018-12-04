@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node index.ts",
-    "test": "mocha **/*.test.ts --opts mocha.opts",
-    "test:parallel": "mocha-parallel-tests **/*.test.ts --opts mocha.opts",
-    "test:watch": "mocha --watch --watch-extensions ts --opts mocha.opts **/*.test.ts"
+    "test": "mocha --opts mocha.opts",
+    "test:parallel": "mocha-parallel-tests --opts mocha.opts",
+    "test:watch": "mocha --watch --watch-extensions ts --opts mocha.opts"
   },
   "dependencies": {
     "ts-node": "^7.0.1",
@@ -29,9 +29,11 @@
     "@types/node": "^10.12.10",
     "@types/sinon": "^5.0.7",
     "chai": "^4.2.0",
+    "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "mocha-parallel-tests": "^2.0.6-alpha.3",
-    "ts-node-dev": "^1.0.0-pre.30",
-    "sinon": "^7.1.1"
+    "nyc": "^13.1.0",
+    "sinon": "^7.1.1",
+    "ts-node-dev": "^1.0.0-pre.30"
   }
 }
