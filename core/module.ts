@@ -12,7 +12,7 @@ export interface IModuleOptions {
 
 export type IModuleConstructor = new () => IModule;
 
-export const NwModule = (options: IModuleOptions) => {
+export function NwModule (options: IModuleOptions) {
   return <T extends { new (...args: any[]): {} }>(constructor: T) => {
     return class extends constructor {
       imports = options.imports;

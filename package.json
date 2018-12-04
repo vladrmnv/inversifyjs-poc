@@ -4,24 +4,34 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node index.ts"
+    "start": "ts-node index.ts",
+    "test": "mocha **/*.test.ts --opts mocha.opts",
+    "test:parallel": "mocha-parallel-tests **/*.test.ts --opts mocha.opts",
+    "test:watch": "mocha --watch --watch-extensions ts --opts mocha.opts **/*.test.ts"
   },
   "dependencies": {
-    "@types/inversify": "^2.0.33",
-    "@types/lodash": "^4.14.118",
-    "@types/node": "^10.12.10",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.6",
     "inversify": "^5.0.1",
     "inversify-components": "^0.4.0",
     "inversify-logger-middleware": "^3.1.0",
-    "inversify-token": "^5.1.0",
     "lodash": "^4.17.11",
-    "reflect-metadata": "^0.1.12",
-    "ts-node": "^7.0.1",
-    "ts-node-dev": "^1.0.0-pre.30",
-    "typescript": "^3.1.6"
+    "reflect-metadata": "^0.1.12"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/inversify": "^2.0.33",
+    "@types/lodash": "^4.14.118",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.10",
+    "@types/sinon": "^5.0.7",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "mocha-parallel-tests": "^2.0.6-alpha.3",
+    "ts-node-dev": "^1.0.0-pre.30",
+    "sinon": "^7.1.1"
+  }
 }
