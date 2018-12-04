@@ -16,7 +16,7 @@ export function NwModule(options: IModuleOptions) {
   return <T extends { new (...args: any[]): {} }>(constructor: T) => {
     return class extends constructor {
       public imports?: IModuleConstructor[];
-      private providers: interfaces.ContainerModuleCallBack;
+      public providers: interfaces.ContainerModuleCallBack;
       constructor(...args: any[]) {
         super(...args);
         this.imports = options.imports || [];

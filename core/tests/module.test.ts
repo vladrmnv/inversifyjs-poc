@@ -1,7 +1,8 @@
 import { expect } from 'chai';
+import { interfaces } from 'inversify';
 
 import { NwModule } from '../module';
-import { interfaces } from 'inversify';
+
 
 describe('NwModule', () => {
   class TestModule {}
@@ -33,7 +34,7 @@ describe('NwModule', () => {
         providers: providerFn,
       })(TestModule);
       const testModule = new DecoratedTestModule();
-      expect((<any>testModule).providers).to.eq(providerFn);
+      expect(testModule.providers).to.eq(providerFn);
     });
   });
 });
