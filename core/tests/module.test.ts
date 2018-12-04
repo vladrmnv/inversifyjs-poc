@@ -3,7 +3,6 @@ import { interfaces } from 'inversify';
 
 import { NwModule } from '../module';
 
-
 describe('NwModule', () => {
   class TestModule {}
   class ImportedModule {
@@ -34,6 +33,11 @@ describe('NwModule', () => {
       })(TestModule);
       const testModule = new DecoratedTestModule();
       expect(testModule.providers).to.eq(providerFn);
+    });
+    it('gets a default provider function if none is passed in options', () => {
+      const DecoratedTestModule = NwModule({})(TestModule);
+      const testModule = new DecoratedTestModule();
+      expect(testModule.providers).to.be.a('function');
     });
   });
 });
