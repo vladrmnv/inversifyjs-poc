@@ -15,5 +15,15 @@ describe('NwModule', () => {
       console.log(result.name);
       expect(result.name).to.eq(TestModule.name);
     });
+    it('gets imports assigned from options', () => {
+      class ImportedModule {
+        load() {}
+      }
+      const DecoratedTestModule = NwModule({
+        imports: [ImportedModule],
+      })(TestModule);
+      const testModule = new DecoratedTestModule();
+      expect(testModule.imports).to.deep.eq([ImportedModule]);
+    });
   });
 });

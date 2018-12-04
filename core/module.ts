@@ -12,14 +12,19 @@ export interface IModuleOptions {
 
 export type IModuleConstructor = new () => IModule;
 
-export function NwModule (options: IModuleOptions) {
+export function NwModule(options: IModuleOptions) {
   return <T extends { new (...args: any[]): {} }>(constructor: T) => {
     return class extends constructor {
-      imports = options.imports;
+      public imports?: IModuleConstructor[];
+      private providers: interfaces.ContainerModuleCallBack;
+      constructor(...args: any[]) {
+        super(...args);
+        this.imports = options.imports || [];
+        this.providers = options.providers || function() {};
+      }
       load() {
-        const providers = options.providers || function() {};
-        return new ContainerModule(providers);
+        return new ContainerModule(this.providers);
       }
     };
   };
-};
+}
