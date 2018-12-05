@@ -8,7 +8,7 @@ export interface IAccountsService {
 
 @injectable()
 export class AccountsService implements IAccountsService {
-  moneyService: IMoneyService;
+  private moneyService: IMoneyService;
   constructor(@inject(TYPES.MoneyService) moneyService: IMoneyService) {
     this.moneyService = moneyService;
   }

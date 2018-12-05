@@ -11,7 +11,6 @@ module.exports = function() {
       const mocha = w.testFramework;
       mocha.slow(10);
       mocha.timeout(50);
-      console.log(w.testFramework);
     }
   };
 };
