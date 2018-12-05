@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 
-import { NwModule, Class } from '../module';
+import { NwModule } from '../module';
+import { Type } from '../type';
 
 describe('NwModule', () => {
   class TestProvider {}
@@ -25,7 +26,7 @@ describe('NwModule', () => {
       expect(testModule.imports).to.deep.eq([ImportedModule]);
     });
     it('gets providers assigned from options', () => {
-      const providers: Class[] = [TestProvider];
+      const providers: Type[] = [TestProvider];
       const DecoratedTestModule = NwModule({
         providers,
       })(TestModule);

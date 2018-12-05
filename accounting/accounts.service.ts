@@ -1,5 +1,4 @@
-import { injectable, inject } from 'inversify';
-import { TYPES } from '../money/money.module';
+import { injectable } from 'inversify';
 import { IMoneyService } from '../money/money.service';
 
 export interface IAccountsService {
@@ -9,7 +8,7 @@ export interface IAccountsService {
 @injectable()
 export class AccountsService implements IAccountsService {
   private moneyService: IMoneyService;
-  constructor(@inject(TYPES.MoneyService) moneyService: IMoneyService) {
+  constructor(moneyService: IMoneyService) {
     this.moneyService = moneyService;
   }
   public getNewAccounts() {
