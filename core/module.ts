@@ -1,29 +1,30 @@
-import { interfaces, ContainerModule } from 'inversify';
+import { Type } from './type';
 
 export interface IModule {
-  imports?: IModuleConstructor[];
-  load(): any;
+  imports: Type<any>[];
+  providers: Type<any>[];
 }
 
 export interface IModuleOptions {
-  imports?: IModuleConstructor[];
-  providers?: interfaces.ContainerModuleCallBack;
+  imports?: Type<any>[];
+  providers?: Type<any>[];
 }
 
 export type IModuleConstructor = new () => IModule;
 
-export function NwModule(options: IModuleOptions) {
-  return <T extends { new (...args: any[]): {} }>(constructor: T) => {
-    return class extends constructor {
-      public imports?: IModuleConstructor[];
-      public providers: interfaces.ContainerModuleCallBack;
+export function NwModule(options?: IModuleOptions) {
+  return <TBase extends Type>(baseConstructor: TBase) => {
+    return class extends baseConstructor implements IModule {
+      public imports: IModuleConstructor[];
+      public providers: Type[];
       constructor(...args: any[]) {
         super(...args);
-        this.imports = options.imports || [];
-        this.providers = options.providers || function() {};
-      }
-      load() {
-        return new ContainerModule(this.providers);
+        this.imports = [];
+        this.providers = [];
+        if (options) {
+          this.imports = options.imports ? options.imports : [];
+          this.providers = options.providers ? options.providers : [];
+        }
       }
     };
   };
