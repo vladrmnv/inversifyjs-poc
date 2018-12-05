@@ -11,7 +11,7 @@
     "test:parallel": "mocha-parallel-tests --opts mocha.opts",
     "test:watch": "mocha --watch --watch-extensions ts --opts mocha.opts",
     "lint": "tslint **/*.ts",
-    "coverage": "nyc npm test",
+    "coverage": "nyc npm test; open coverage/index.html",
     "coverage:watch": "nyc npm run test:watch",
     "report": "nyc report"
   },
