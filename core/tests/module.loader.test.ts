@@ -19,8 +19,14 @@ describe('ModuleLoader', () => {
   describe('#load', () => {
     it('returns an array of container modules', () => {
       const loader = new ModuleLoader();
-      const result = loader.load(LowLevelModule).shift();
+      const result = loader.load(FeatureModule).shift();
       expect(result instanceof ContainerModule).to.be.true;
+    });
+
+    it('only loads unique modules', () => {
+      const loader = new ModuleLoader();
+      const result = loader.load(LowLevelModule, LowLevelModule);
+      expect(result.length).to.eq(1);
     });
   });
 });
