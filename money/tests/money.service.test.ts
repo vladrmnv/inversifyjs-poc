@@ -1,8 +1,11 @@
-import { MoneyService } from "../money.service";
-import { expect } from "chai";
+import { MoneyService } from '../money.service';
+import { expect } from 'chai';
 
 describe('MoneyService', () => {
-    it('imports',() => {
-        expect(MoneyService).to.be.a('function');
-    })
-})
+  describe('#display', () => {
+      it('formats cents to dollars',() => {
+          const service = new MoneyService();
+          expect(service.display(1000)).to.eq('$10');
+      })
+  });
+});
