@@ -7,6 +7,6 @@ export interface IMoneyService {
 @injectable()
 export class MoneyService implements IMoneyService {
   public display(cash: number) {
-    return `$${cash/100}`;
+    return `$${cash / 100}`;
   }
 }
