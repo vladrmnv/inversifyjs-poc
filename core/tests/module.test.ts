@@ -14,7 +14,7 @@ describe('NwModule', () => {
   });
   describe('decorated class module', () => {
     it('has the same name as original', () => {
-      const result = NwModule({})(TestModule);
+      const result = NwModule()(TestModule);
       console.log(result.name);
       expect(result.name).to.eq(TestModule.name);
     });
@@ -34,7 +34,7 @@ describe('NwModule', () => {
       expect(testModule.providers).to.eq(providers);
     });
     it('gets an empty provider array if none are passed in options', () => {
-      const DecoratedTestModule = NwModule({})(TestModule);
+      const DecoratedTestModule = NwModule()(TestModule);
       const testModule = new DecoratedTestModule();
       expect(testModule.providers).to.deep.eq([]);
     });

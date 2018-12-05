@@ -4,10 +4,6 @@ import {
   IReportingService,
   ReportingService,
 } from './reporting/reporting.service';
-import {
-  INotificationsService,
-  NotificationsService,
-} from './notifications/notifications.service';
 
 async function main() {
   const rootContainer = loadDiContainer();
@@ -16,12 +12,6 @@ async function main() {
   );
   const report = reportingService.createAccountingReport();
   console.log('Report:', report);
-
-  const notificationService = rootContainer.get<INotificationsService>(
-    NotificationsService
-  );
-  const updates = notificationService.getUpdates();
-  console.log('Updates:', updates);
 }
 
 main()
