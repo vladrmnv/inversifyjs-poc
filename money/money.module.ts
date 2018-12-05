@@ -1,5 +1,4 @@
-import { ContainerModule } from 'inversify';
-import { IModule, IModuleConstructor, NwModule } from '../core/module';
+import { NwModule } from '../core/module';
 import { IMoneyService, MoneyService } from './money.service';
 
 export const TYPES = {

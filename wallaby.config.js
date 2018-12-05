@@ -6,9 +6,9 @@ module.exports = function() {
       type: 'node'
     },
     testFramework: 'mocha',
-    bootstrap: function(w) {
+    bootstrap: function(wallaby) {
       require('reflect-metadata');
-      const mocha = w.testFramework;
+      const mocha = wallaby.testFramework;
       mocha.slow(10);
       mocha.timeout(50);
     }
