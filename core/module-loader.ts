@@ -1,5 +1,5 @@
 import { ContainerModule } from 'inversify';
-import { IModuleConstructor, IModule } from './module';
+import { IModuleConstructor } from './module';
 import { uniqBy, isEmpty } from 'lodash';
 import { Type } from './type';
 

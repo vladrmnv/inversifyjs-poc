@@ -1,17 +1,25 @@
 import 'reflect-metadata';
 import { loadDiContainer } from './app/root.container';
-import { IReportingService } from './reporting/reporting.service';
-import { TYPES as ReportingTypes } from './reporting/reporting.module';
-import { TYPES as NotificationsTypes } from './notifications/notifications.module';
-import { INotificationsService } from './notifications/notifications.service';
+import {
+  IReportingService,
+  ReportingService,
+} from './reporting/reporting.service';
+import {
+  INotificationsService,
+  NotificationsService,
+} from './notifications/notifications.service';
 
 async function main() {
   const rootContainer = loadDiContainer();
-  const reportingService = rootContainer.get<IReportingService>(ReportingTypes.ReportingService);
+  const reportingService = rootContainer.get<IReportingService>(
+    ReportingService
+  );
   const report = reportingService.createAccountingReport();
   console.log('Report:', report);
 
-  const notificationService = rootContainer.get<INotificationsService>(NotificationsTypes.NotificationsService);
+  const notificationService = rootContainer.get<INotificationsService>(
+    NotificationsService
+  );
   const updates = notificationService.getUpdates();
   console.log('Updates:', updates);
 }

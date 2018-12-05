@@ -1,6 +1,8 @@
-import { injectable, inject } from 'inversify';
-import { IAccountsService } from '../accounting/accounts.service';
-import { TYPES } from '../accounting/accounting.module';
+import { injectable } from 'inversify';
+import {
+  IAccountsService,
+  AccountsService,
+} from '../accounting/accounts.service';
 
 export interface IReportingService {
   createAccountingReport(): string;
@@ -9,10 +11,7 @@ export interface IReportingService {
 @injectable()
 export class ReportingService {
   private accountsService: IAccountsService;
-  constructor(
-    // try without @inject
-    @inject(TYPES.AccountsService) accountsService: IAccountsService
-  ) {
+  constructor(accountsService: AccountsService) {
     this.accountsService = accountsService;
   }
   public createAccountingReport() {
