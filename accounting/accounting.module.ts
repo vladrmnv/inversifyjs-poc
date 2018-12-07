@@ -5,6 +5,6 @@ import { MoneyModule } from '../money/money.module';
 
 @NwModule({
   imports: [MoneyModule],
-  providers: [AccountsService],
+  providers: [AccountsService]
 })
 export class AccountingModule {}

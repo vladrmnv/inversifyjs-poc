@@ -1,3 +1,3 @@
-export interface DashboardDataDto {
+export interface IDashboardInfoDto {
   newAccounts: string;
 }
