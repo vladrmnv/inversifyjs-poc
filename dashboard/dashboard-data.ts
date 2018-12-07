@@ -1,3 +1,3 @@
 export interface IDashboardInfoDto {
-  newAccounts: string;
+  newAccounts: string[];
 }
