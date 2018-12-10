@@ -8,20 +8,25 @@ import {
   INotificationsService,
   NotificationsService,
 } from './notifications/notifications.service';
+import { IAccountsService } from './accounting/accounts.service';
+import { DashboardService, IDashboardService } from './dashboard/dashboard.service';
 
 async function main() {
   const rootContainer = loadDiContainer();
-  const reportingService = rootContainer.get<IReportingService>(
-    ReportingService
-  );
-  const report = reportingService.createAccountingReport();
-  console.log('Report:', report);
+  const dashboardServce = rootContainer.get<IDashboardService>(DashboardService);
+  const result = dashboardServce.getInfo();
+  console.log(result);
+  // const reportingService = rootContainer.get<IReportingService>(
+  //   ReportingService
+  // );
+  // const report = reportingService.createAccountingReport();
+  // console.log('Report:', report);
 
-  const notificationService = rootContainer.get<INotificationsService>(
-    NotificationsService
-  );
-  const updates = notificationService.getUpdates();
-  console.log('Updates:', updates);
+  // const notificationService = rootContainer.get<INotificationsService>(
+  //   NotificationsService
+  // );
+  // const updates = notificationService.getUpdates();
+  // console.log('Updates:', updates);
 }
 
 main()
